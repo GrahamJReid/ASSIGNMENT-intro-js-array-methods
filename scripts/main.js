@@ -37,13 +37,15 @@ const buttonFilter = (event) => {
     renderCards(free)
   }
   if(event.target.id.includes('cartFilter')) {
-    console.log('cartFilter')
+    const wishlist = referenceList.filter(taco => taco.inCart)
+    renderCards(wishlist)
   }
   if(event.target.id.includes('books')) {
-    console.log('books!')
+   const books =referenceList.filter(item => item.type.toLowerCase() === 'book');
+   renderCards(books);
   }
   if(event.target.id.includes('clearFilter')) {
-    console.log('clearFilter')
+    renderCards(referenceList);
   }
   if(event.target.id.includes('productList')) {
     let table = `<table class="table table-dark table-striped" style="width: 600px">
@@ -78,7 +80,10 @@ const cartTotal = () => {
 // RESHAPE DATA TO RENDER TO DOM
 // .map()
 const productList = () => {
-  return [{ title: "SAMPLE TITLE", price: 45.00, type: "SAMPLE TYPE" }]
+  return referenceList.map(item => ({
+    title:item.title,
+     price:item.price,
+     type:item.type})) 
 }
 
 
