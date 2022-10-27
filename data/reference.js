@@ -105,6 +105,6 @@ export const referenceList = [
     type: "App",
     description: "This app will get you excited about Black History! Play the game and get the highest score on the leaderboard.",
     externalLink: "https://blackhistorytrivia.netlify.app/",
-    inCart: false
+    inCart:false 
   },
 ];
